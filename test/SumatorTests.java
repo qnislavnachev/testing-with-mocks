@@ -63,25 +63,13 @@ public class SumatorTests {
         assertEquals("-7", sum.stringValue());
     }
 
-    @Test
+    @Test(expected = NumberFormatException.class)
     public void testWrongSymbol() throws Exception {
-        boolean thrown = false;
-        try {
-            new Sumator("ASD").plus(new Sumator("123"));
-        } catch (NumberFormatException z) {
-            thrown = true;
-        }
-        assertTrue(thrown);
+        new Sumator("ASD").plus(new Sumator("123"));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testNullArgument() throws Exception {
-        boolean thrown = false;
-        try {
-            new Sumator(null).plus(new Sumator(null));
-        } catch (IllegalArgumentException z) {
-            thrown = true;
-        }
-        assertTrue(thrown);
+        new Sumator(null).plus(new Sumator(null));
     }
 }
