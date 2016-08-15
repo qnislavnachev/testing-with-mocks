@@ -12,7 +12,7 @@ public class EndpointFilterTest {
     public JUnitRuleMockery context = new JUnitRuleMockery();
 
     @Test
-    public void shouldFilterTest() throws Exception {
+    public void shouldFilter() throws Exception {
         Endpoint endpoint = context.mock(Endpoint.class);
         EndpointFilter f = new EndpointFilter(endpoint);
         String url = "url";
@@ -24,7 +24,7 @@ public class EndpointFilterTest {
     }
 
     @Test
-    public void startWithKeywordTest() throws Exception {
+    public void startWithKeyword() throws Exception {
         Endpoint matcher = new StartsWithKeyword();
         String url = "www.test.com";
         assertTrue(matcher.matches(url));
