@@ -23,11 +23,14 @@ public class UserTest {
             oneOf(validator).validate(iani);
             will(returnValue(true));
 
+            oneOf(userDB).findUser(iani.name);
+            will(returnValue(iani));
+
             oneOf(userDB).addUser(iani);
         }});
 
         userRepository.registerUser(iani);
-        assertTrue(userRepository.invoked);
+        assertSame(userDB.findUser(iani.name), iani);
     }
 
     @Test(expected = UserException.class)
