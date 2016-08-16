@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface UserDB {
 
-    boolean addUser(User user);
+    void addUser(User user);
 
     User findUser(String name);
 }

@@ -24,10 +24,10 @@ public class UserTest {
             will(returnValue(true));
 
             oneOf(userDB).addUser(iani);
-            will(returnValue(true));
         }});
 
-        assertTrue(userRepository.registerUser(iani));
+        userRepository.registerUser(iani);
+        assertTrue(userRepository.invoked);
     }
 
     @Test(expected = UserException.class)
