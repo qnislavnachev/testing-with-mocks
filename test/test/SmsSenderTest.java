@@ -99,5 +99,4 @@ public class SmsSenderTest {
         assertFalse(sender.sendSms(sms1));
         assertFalse(sender.sendSms(sms2));
     }
-
 }
