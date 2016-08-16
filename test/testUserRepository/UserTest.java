@@ -22,12 +22,15 @@ public class UserTest {
         context.checking(new Expectations() {{
             oneOf(validator).validate(iani);
             will(returnValue(true));
+
+            oneOf(userDB).addUser(iani);
+            will(returnValue(true));
         }});
 
         assertTrue(userRepository.registerUser(iani));
     }
 
-    @Test(expected = InvalidUserException.class)
+    @Test(expected = UserException.class)
     public void registerUserIsTooOld() throws Exception {
         User iani = new User("iani", "101");
 

@@ -13,15 +13,12 @@ public class UserRepository {
         if (validator.validate(user)) {
             return userDB.addUser(user);
         } else {
-            throw new InvalidUserException("Invalid user");
+            throw new UserException("Invalid user");
         }
     }
 
     public boolean isAdult(String name) {
         User user = userDB.findUser(name);
-        if (Integer.parseInt(user.age) >= 18) {
-            return true;
-        }
-        return false;
+        return (Integer.parseInt(user.age) >= 18);
     }
 }
