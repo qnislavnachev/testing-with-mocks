@@ -25,7 +25,7 @@ public class EndpointFilterTest {
 
     @Test
     public void startWithKeyword() throws Exception {
-        Endpoint matcher = new StartsWithKeyword();
+        Endpoint matcher = new StartsWithKeyword("www");
         String url = "www.test.com";
         assertTrue(matcher.matches(url));
     }
