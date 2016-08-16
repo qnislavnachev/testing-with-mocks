@@ -2,6 +2,7 @@ package testwithmockendpointtask;
 
 public class StartsWithKeyword implements Endpoint {
     private String keyword;
+
     public StartsWithKeyword(String keyword){
         this.keyword = keyword;
     }
