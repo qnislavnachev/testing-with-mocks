@@ -26,7 +26,7 @@ public class UserTest {
             oneOf(userDB).findUser(iani.name);
             will(returnValue(iani));
 
-            oneOf(userDB).addUser(iani);
+            oneOf(userDB).add(iani);
         }});
 
         userRepository.registerUser(iani);
