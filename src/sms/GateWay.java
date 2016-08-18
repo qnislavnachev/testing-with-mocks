@@ -2,20 +2,18 @@ package sms;
 
 public class GateWay {
 
-    private final SmsSender sender;
-    private final SmsValidator validator;
+    private final Sender sender;
+    private final Validator validator;
 
-    public GateWay(SmsSender sender, SmsValidator validator) {
+    public GateWay(Sender sender, Validator validator) {
         this.sender = sender;
         this.validator = validator;
     }
 
     public boolean send(Sms sms) {
-        return (validator.matches(sms));
-    }
-
-    public boolean matches(Sms sms) {
-        return !(sms.receiver == null || sms.receiver.length() == 0)
-                && (sms.text.length() > 0 && sms.text.length() <= 20);
+        if (!validator.matches(sms)) {
+            return false;
+        }
+        return sender.send(sms);
     }
 }
